@@ -1,0 +1,35 @@
+<style>
+th, td {
+  padding: 10px;
+}
+th {
+  text-align: right;
+}
+</style>
+
+<h1>Update Venue:</h1>
+
+<%= form_tag(nil, method: "post") do %>
+
+<table>
+  <tbody>
+    <tr>
+      <th><%= label_tag(:name, "Name:") %></th>
+      <td><%= text_field_tag(:title, @venue.name, :required => true) %></td>
+    </tr>
+    <tr>
+    <th><%= label_tag(:status, "Raves") %></th>
+    <td><%= radio_button_tag 'status', 'true', true %></td>
+    </tr>
+    <tr>
+    <th><%= label_tag(:status, "Doesn't Rave") %></th>
+    <td><%= radio_button_tag 'status', 'false', false %></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><%= submit_tag("Update") %></td>
+    </tr>
+  </tbody>
+</table>
+
+<% end %>

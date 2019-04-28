@@ -1,0 +1,49 @@
+<style>
+th, td {
+  padding: 10px;
+}
+th {
+  text-align: left;
+}
+.status{
+  max-height: 15px;
+
+}
+</style>
+
+<h1>All Venues</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Previous</th>
+      <th>Status</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  <% @venue.each do |venue| %>
+  <tr>
+    <td><%= venue.id %></td>
+    <td><%= venue.name %></td>
+    <td><%= venue.prev%></td>
+    <td>
+    <% if venue.status %>
+      <img class="status" src="https://www.colorcombos.com/images/colors/92CD00.png">
+    <% else %>
+      <img class="status" src="https://www.colorcombos.com/images/colors/AA0114.png">
+    <% end %>
+    </td>
+    <td><a href="/venue/delete/<%= venue.id %>">Delete</a></td>
+    <td><a href="/venue/update/<%= venue.id %>">Update</a></td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<br/>
+<a href="/venue/create">Create New</a>
